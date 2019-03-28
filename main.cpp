@@ -1,10 +1,9 @@
-#include <cstdlib>
+#include<cstdlib>
 #include<vector>
 #include<iostream>
 
-#include "BusSchedule.h"
-
-using namespace std;
+#include"BusSchedule.h"
+#include"BusStop.h"
 
 int main(int argc, char** argv) {
     
