@@ -12,7 +12,7 @@ public:
     int getMaxCap();
     int getComfyCap();
     BusSchedule cross(BusSchedule);
-    BusSchedule mutate;
+    BusSchedule mutate();
 };
 
 #endif /* BUSSCHEDULE_H */
