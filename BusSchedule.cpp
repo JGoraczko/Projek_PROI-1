@@ -5,7 +5,7 @@
 #include<chrono>
 
 unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-std::default_random_engine generator (seed);
+std::default_random_engine generator(seed);
 
 
 BusSchedule::BusSchedule(int nr_departures, int max_cap, int comfy_cap){
@@ -18,6 +18,7 @@ BusSchedule::BusSchedule(int nr_departures, int max_cap, int comfy_cap){
     std::sort(n_departures.begin(), n_departures.end());
     departures = n_departures;
 }
+
 
 std::vector<int> BusSchedule::getDepartures(){
     return departures;
@@ -37,13 +38,16 @@ BusSchedule BusSchedule::cross(BusSchedule partner){
     for(int i = 0; i < partner.departures.size(); ++i)
         if(distribution_01(generator))
             partner.departures[i] = departures[i];
+    std::sort(partner.departures.begin(), partner.departures.end());
     return partner;
 }
 
 BusSchedule BusSchedule::mutate(){
-    BusSchedule mutated = *this;
+    BusSchedule mutated(*this);
     std::uniform_int_distribution<int> distribution_dep_size(0,departures.size()-1);
-    std::uniform_int_distribution<int> distribution_20(-20, 20);
-    mutated.departures[distribution_dep_size(generator)] +=  distribution_20(generator);
+    std::uniform_int_distribution<int> distribution_20(-30, 30);
+    int nr = distribution_dep_size(generator);
+    mutated.departures[nr] = (mutated.departures[nr] + distribution_20(generator)) % 1440;
+    std::sort(mutated.departures.begin(), mutated.departures.end());
     return mutated;
 }
