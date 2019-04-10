@@ -1,3 +1,3 @@
 Program znajduje optymalne rozkłady jazdy autobusów.
-Program symuluje podróżnych oczekujących na przystanku i zlicza ich czas oczekiwania na autobus dodatkowo doliczając karę jeżeli autobus odjedziea zatłoczony.
-Potem za pomocą algorytmu genetycznego optymalizuje rozwiązanie.
+Program symuluje podróżnych oczekujących na przystanku i zlicza ich czas oczekiwania na autobus dodatkowo 
+doliczając karę jeżeli autobus odjedziea zatłoczony, potem za pomocą algorytmu genetycznego optymalizuje rozwiązanie.
